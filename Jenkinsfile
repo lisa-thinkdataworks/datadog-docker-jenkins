@@ -10,6 +10,9 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'echo $FAVOURITE_FRUIT'
+                withCredentials([string(credentialsId: 'datadogApiKey', variable: 'LISAKEY')]) {
+                    sh 'echo $LISAKEY'
+                }
             }
         }
     }
