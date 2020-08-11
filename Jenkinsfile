@@ -14,7 +14,3 @@ pipeline {
     }
 }
 
-
-withCredentials([string(credentialsId: 'datadogApiKey', variable: 'DATADOGAPIKEY')]) {
-    // some block
-}
