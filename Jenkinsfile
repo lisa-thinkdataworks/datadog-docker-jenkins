@@ -7,7 +7,7 @@ pipeline {
             steps {
 		withCredentials([string(credentialsId: 'datadogApiKey', variable: 'datadogApiKey')]) {
                     sh 'echo $datadogApiKey'
-                    sh 'env |grep datadogApiKey'
+                    sh 'env' 
 		}
             }
         }
