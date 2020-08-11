@@ -9,7 +9,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'node --version'
-                sh 'echo $APIKEY'
+		withCredentials([string(credentialsId: 'datadogApiKey', variable: 'datadogApiKey')]) {
+                    sh 'echo $datadogApiKey'
+		}
             }
         }
     }
