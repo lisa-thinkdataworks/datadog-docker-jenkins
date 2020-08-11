@@ -7,7 +7,7 @@ pipeline {
             steps {
                 sh 'node --version'
 		withCredentials([string(credentialsId: 'datadogApiKey', variable: 'datadogApiKey')]) {
-                    sh 'echo $datadogApiKey'
+                    sh 'echo datadogApiKey'
 		}
             }
         }
