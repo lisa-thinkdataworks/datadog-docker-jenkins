@@ -2,17 +2,18 @@ pipeline {
     agent {
         docker { image 'node:14-alpine' }
     }
-    environment {
-        APIKEY = credentials('datadogApiKey')
-    }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
-		sh 'env'
-                sh 'env |grep APIKEY'
+		withCredentials([string(credentialsId: 'datadogApiKey', variable: 'datadogApiKey')]) {
+                    sh 'echo $datadogApiKey'
+		}
             }
         }
     }
 }
 
+
+withCredentials([string(credentialsId: 'datadogApiKey', variable: 'DATADOGAPIKEY')]) {
+    // some block
+}
