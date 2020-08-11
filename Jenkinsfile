@@ -9,9 +9,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'node --version'
-                sh 'echo APIKEY'
-                sh 'echo $APIKEY'
+		sh 'env'
+                sh 'env |grep APIKEY'
             }
         }
     }
 }
+
