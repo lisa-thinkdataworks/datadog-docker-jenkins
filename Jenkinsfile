@@ -3,7 +3,7 @@ pipeline {
         docker { image 'node:14-alpine' }
     }
     environment {
-        FAVOURITE_FRUIT = credentials['datadogApiKey']
+        FAVOURITE_FRUIT = 'Start testing by Lisa'
     }
     stages {
         stage('Test') {
