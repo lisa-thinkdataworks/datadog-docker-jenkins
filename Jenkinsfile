@@ -3,16 +3,16 @@ pipeline {
         docker { image 'node:14-alpine' }
     }
     environment {
-        FAVOURITE_FRUIT = 'Start testing by Lisa'
+        APIKEY = credentials('datadogApiKey')
     }
     stages {
         stage('Test') {
             steps {
                 sh 'node --version'
-                sh 'echo $FAVOURITE_FRUIT'
-                withCredentials([string(credentialsId: 'datadogApiKey', variable: 'LISAKEY')]) {
-                    sh 'echo $LISAKEY'
-                }
+                sh 'echo $APIKEY'
+                #withCredentials([string(credentialsId: 'datadogApiKey', variable: 'LISAKEY')]) {
+                #    sh 'echo $LISAKEY'
+                #}
             }
         }
     }
