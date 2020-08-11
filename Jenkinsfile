@@ -5,8 +5,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-		withCredentials([string(credentialsId: 'datadogApiKey', variable: 'datadogApiKey')]) {
-                    sh 'echo $datadogApiKey'
+		withCredentials([string(credentialsId: 'datadogApiKey', variable: 'DATADOG_API_KEY')]) {
                     sh 'env' 
 		}
             }
